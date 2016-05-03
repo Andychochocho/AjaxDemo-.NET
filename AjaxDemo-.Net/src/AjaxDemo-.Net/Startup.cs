@@ -11,6 +11,7 @@ namespace AjaxDemo
     public class Startup
     {
         public IConfigurationRoot Configuration { get; set; }
+
         public Startup()
         {
             var builder = new ConfigurationBuilder()
@@ -20,6 +21,8 @@ namespace AjaxDemo
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
+
             services.AddEntityFramework()
                 .AddSqlServer()
                 .AddDbContext<AjaxDemoContext>(options => options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));

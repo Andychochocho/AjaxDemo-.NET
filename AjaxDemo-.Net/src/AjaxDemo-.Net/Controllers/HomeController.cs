@@ -37,5 +37,13 @@ namespace AjaxDemo_.Net.Controllers
         {
             return View();
         }
+
+        private AjaxDemoContext db = new AjaxDemoContext();
+
+        public IActionResult RandomDestinationList(int destinationCount)
+        {
+            var randomDestinationList = db.Destinations.OrderBy(r => Guid.NewGuid()).Take(destinationCount);
+            return Json(randomDestinationList);
+        }
     }
 }
