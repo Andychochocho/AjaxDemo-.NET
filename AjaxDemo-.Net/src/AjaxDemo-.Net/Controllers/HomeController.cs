@@ -32,5 +32,10 @@ namespace AjaxDemo_.Net.Controllers
             Destination destination = new Destination("Tokyo", "Japan", 1);
             return Json(destination);
         }
+
+        public IActionResult DisplayViewWithAjax()
+        {
+            return View();
+        }
     }
 }
